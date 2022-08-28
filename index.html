@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="demo purposes only">
+    <meta name="author" content="Sudha">
+    <title>Company, Department SomeProduct Customers</title>
+	<style>
+		* { box-sizing: border-box;}
+		html, body {font-family: Arial, Helvetica, sans-serif; font-weight: 400; margin: 0; background-color: #FFFFFF; -ms-text-size-adjust: 100%; -moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;}
+		a{text-decoration: none !important;}
+		h1{ margin-top: 0px; margin-bottom: 0px;}
+		ul{font-size: 15px;line-height: 30px;font-weight: 300; color: #afafaf; margin-bottom: 0px; margin-top:0px;}
+		li{ position: relative; z-index: 1;}
+		p{ font-size: 15px; line-height: 30px; font-weight: 300; color: #afafaf;}
+		img{ overflow: hidden; float:left;}
+		.customer1 .icon{ background-image: url(darksalmon.png);}
+		.customer1:hover .icon{ background-image: url(white.png);}
+		.customer2 .icon{background-image: url(pureblue.png);}
+		.customer2:hover .icon{background-image: url(white.png);}
+		.customer3 .icon{background-image: url(puregreen.png);}
+		.customer3:hover .icon{background-image: url(white.png);}
+		.customer4 .icon{background-image: url(maroon.png);}
+		.customer4:hover .icon{background-image: url(white.png);}
+		.customer5 .icon{background-image: url(steelblue.png);}
+		.customer5:hover .icon{background-image: url(white.png);}
+		.customer6 .icon{background-image: url(purered.png);}
+		.customer6:hover .icon{background-image: url(white.png);}
+		.customer7 .icon{background-image: url(darkyellow.png);}
+		.customer7:hover .icon{background-image: url(white.png);}
+		.customer8 .icon{background-image: url(seagreen.png);}
+		.customer8:hover .icon{background-image: url(white.png);}
+		.customer9 .icon{background-image: url(fuchsia.png);}
+		.customer9:hover .icon{background-image: url(white.png);}
+		::selection{background: #0000FF; color: #fff !important;}
+		::-moz-selection{background: yellow;color: #red !important;}
+		.customer_item, .detailed_customer_item{
+		  position: relative;
+		  z-index: 1;
+		  padding: 25px;
+		  box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+		  background-color: #FFFFFF;
+		  border-radius: 2px;
+		  border-top-right-radius: 50px;
+		  transition: all 0.3s;
+		}
+		.customer_item{height:350px;}	.detailed_customer_item{height:auto;margin-top:0px;margin-right:2px;margin-bottom:10px;margin-left:20px;}
+		.customer_item:hover{
+		  background-image: url(float-bg.png);
+		  background-position: right top;
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		}
+		.customer_item .icon, .detailed_customer_item .icon {
+		  margin-left: 0px;
+		  background-repeat: no-repeat;
+		  width: 50px;
+		  height: 50px;
+		  transition: all .3s;
+		  margin-bottom: 10px;
+		}
+		.customer_item h1, .detailed_customer_item h1 {
+		  transition: all .3s; font-size: 20px; font-weight: 700; margin-bottom: 10px;}
+		.customer_item p, .detailed_customer_item p {  transition: all .3s; font-size: 15px; margin-bottom: 10px;}
+		.detailed_customer_item p {color:#000000;}
+		.text-button {
+		  border: none;
+		  padding: 9px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  cursor: pointer;
+		  border-radius: 12px;
+		  font-weight: 700;
+		}
+		.customer_item:hover h1,.customer_item:hover p,.customer_item:hover ul,.customer_item:hover li,.customer_item:hover .text-button a, .detailed_customer_item .text-button a {color: #FFFFFF;}
+		.detailed_customer_item ul, .detailed_customer_item li { color: #000;}
+		.container{width:100%;height:100%;}
+		.row{clear:both;}
+		.col-four {width: 22%; float: left; margin-right:10px; margin-top: 5px;	margin-bottom: 10px;}
+		.col-four:last-child { margin-right: 0;}
+		.clear { clear: both;}
+		@media screen and (min-width: 1300px)  {
+			.col-four {
+				width: 22%;
+				float: left;
+			}
+		}
+		@media screen and (min-width: 1025px) and (max-width :1299px) {
+			.col-four {
+				width: 30%;
+				float: left;
+			}
+		}
+		@media screen and (min-width:768px) and (max-width : 1024px) {
+			.col-four {
+				width: 47%;
+				float: left;
+			}
+		}
+		@media screen and (max-width : 767px) {
+			.col-four {
+				width: 100%;
+			}
+		}
+
+		.DARKSALMON { background:#f97171;}
+		.DARKYELLOW { background:#f5d55f;}
+		.PUREGREEN { background:#00ff0d;}
+		.LIGHTGREEN { background:#c5ed77;}
+		.PUREBLUE {background:#1800ff;}
+		.ORANGE { background:#f99e50;}
+		.LIGHTBLUE { background:#CCEEFF;}
+		.MAROON  { background:#800000;}
+		.OLIVE  {background:#808000 ;}
+		.PURERED { background:#FF0000;}
+		.AQUA    { background:#00FFFF  ;}
+		.NAVY     { background:#000080   ;}
+		.FUCHSIA  {background:#FF00FF   ;}
+		.PUREYELLOW { background:#FFFF00;}
+		.LIGHTSALMON { background:#FFA07A   ;} 
+		.SEAGREEN    {background:#2E8B57;}
+		.STEELBLUE    {  background:#4682B4;}
+		.FIREBRICK    { background:#B22222   ;}
+
+.header, .footer{
+  overflow: hidden;
+  background-color: #062135;
+  padding: 20px 10px;
+}
+.footer{
+  text-align: center;
+}
+h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+h2 em{
+  color: #4b8ef1;
+}
+
+	</style>
+  </head>
+<body>
+  <!-- ***** Header Area Start ***** -->
+ 
+<div class="header">
+  <a href="index.html">
+	<img src="Sachikatlogo.png" height="100" alt="EACS Customers">
+  </a>
+	<h2><br/>&nbsp;&nbsp;&nbsp;Current <em>SomeProduct</em> Customers </h2>
+</div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-four DARKSALMON ">
+          <div class="customer_item customer1">
+		   <a name="customer1top"></a>
+            <div class="icon"></div>
+            <h1>Customer1</h1>
+            <p><b>Rules application:</b>​ You are not allowed to redistribute this template ZIPPED file on any other website. </p>
+           <div class="text-button">
+              <a href="index.html#customer1_readmore"><i>Read More &#8594</i></a>
+            </div>			
+          </div>
+        </div>
+		<a name="customer2top"></a> 
+        <div class="col-four PUREBLUE">
+          <div class="customer_item customer2">
+            <div class="icon"></div>
+            <h1>Customer 2</h1>
+            <p><b>Using my code:</b> You are allowed to use but not distribute this html and the css. Feel free to modify or edit this layout </p>	
+          </div>
+		  
+        </div>		
+        <div class="col-four PUREGREEN">
+          <div class="customer_item customer3">
+            <div class="icon"></div>
+            <h1>Customer 3</h1>
+            <p><b>Appreciation Application:</b> If you find this useful, please give me reviews - Thank you</p>
+          </div>
+        </div>
+        <div class="col-four MAROON">
+          <div class="customer_item customer4">
+		  	<a name="customer4top"></a> 
+            <div class="icon"></div>
+            <h1>Customer 4</h1>
+            <p><b>Using our Support services:</b> Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Dictum sit amet justo donec enim diam vulputate ut pharetra. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod.</p>
+           <div class="text-button">
+              <a href="index.html#customer4_readmore"><i>Read More &#8594</i></a>
+            </div>
+          </div>		  
+        </div>		
+       <div class="col-four STEELBLUE">
+          <div class="customer_item customer5">
+		  <a name="customer5top"></a>		  
+            <div class="icon"></div>
+            <h1>Customer 5</h1>
+			<p> Three enterprise products: </p>
+			<ul> 
+			<li> Product 1 database </li>
+			<li> Product 2 UX </li>
+			<li> Product 3 Support </li>
+			</ul>			
+           <div class="text-button">
+              <a href="index.html#customer5_readmore"><i>Read More &#8594</i></a>
+            </div>			
+          </div>
+        </div>
+        <div class="col-four PURERED ">
+          <div class="customer_item customer6">
+		  <a name="customer6top"></a>
+            <div class="icon"></div>
+            <h1>Customer 6</h1>
+            <p><b>Product 1 and Product 2:</b>Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Dictum sit amet justo donec enim diam vulputate ut pharetra. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod</p>			
+          </div>
+        </div>		
+       <div class="col-four DARKYELLOW">
+          <div class="customer_item customer7">
+            <div class="icon"></div>
+            <h1>Customer 7</h1>
+            <p><b>Products Tools:</b> Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Dictum sit amet justo donec enim diam vulputate ut pharetra. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod</p>		
+          </div>
+        </div>
+        <div class="col-four SEAGREEN ">
+          <div class="customer_item customer8">
+		  <a name="customer8top"></a>		  
+            <div class="icon"></div>
+            <h1>Customer 8</h1>
+            <p><b>White Paper:</b> Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Dictum sit amet justo donec enim diam vulputate ut pharetra. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod</p>
+           <div class="text-button">
+              <a href="index.html#customer8_readmore"><i>Read More &#8594</i></a>
+            </div>			
+          </div>
+        </div>
+        <div class="col-four FUCHSIA">
+          <div class="customer_item customer9">
+            <div class="icon"></div>
+            <h1>Product 9</h1>
+            <p><b>Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Dictum sit amet justo donec enim diam vulputate ut pharetra. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod.</p>
+          </div>
+        </div>	
+      </div>
+	  <div class="row">
+		<div class="col-12 DARKSALMON">
+          <div class="detailed_customer_item customer1">
+				<a name="customer1_readmore"></a>
+				<div class="icon"></div> 		
+				<h1>Customer1</h1>
+				<p><b>Rules application:</b>​ You are not allowed to redistribute this template ZIPPED file on any other website. </p>
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent tristique magna sit amet purus gravida quis blandit turpis. Ultricies mi eget mauris pharetra. Neque volutpat ac tincidunt vitae. Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Faucibus a pellentesque sit amet porttitor eget. In pellentesque massa placerat duis ultricies. Tortor at risus viverra adipiscing at. Odio facilisis mauris sit amet massa vitae tortor. Rhoncus mattis rhoncus urna neque viverra justo. Ultrices gravida dictum fusce ut. Egestas dui id ornare arcu odio ut sem nulla pharetra. Eu consequat ac felis donec. Nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Convallis a cras semper auctor neque vitae tempus. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque.
+				</p>
+				<div class="text-button DARKSALMON">
+				<a href="index.html#customer1top">&#8592 Back</a>
+				</div>
+          </div>
+        </div>	  
+		<div class="col-12 MAROON">
+          <div class="detailed_customer_item customer4">
+			<a name="customer4_readmore"></a>
+             <div class="icon"></div> 		
+            <h1>Customer 4</h1>
+            <p><b>Using our Support services:</b> Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Dictum sit amet justo donec enim diam vulputate ut pharetra. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. </p>
+			<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Dictum sit amet justo donec enim diam vulputate ut pharetra. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. </p>
+
+			<p>Turpis massa sed elementum tempus egestas sed sed risus. Non consectetur a erat nam at lectus. Rhoncus dolor purus non enim praesent elementum. Vitae justo eget magna fermentum. Eget egestas purus viverra accumsan in nisl nisi scelerisque. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Vitae elementum curabitur vitae nunc. Ut venenatis tellus in metus vulputate eu scelerisque. Imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Et leo duis ut diam quam nulla porttitor. Scelerisque eu ultrices vitae auctor eu. </p>		 
+           <div class="text-button MAROON">
+              <a href="index.html#customer4top">&#8592 Back</a>
+           </div>
+          </div>
+        </div>
+		<div class="col-12 STEELBLUE">
+          <div class="detailed_customer_item customer5">
+		  	<a name="customer5_readmore"></a>
+             <div class="icon"></div> 		
+            <h1>Customer 5</h1>
+			<p> Three enterprise products: </p>
+			<ul> 
+			<li> Product 1 database </li>
+			<li> Product 2 UX </li>
+			<li> Product 3 Support </li>
+			</ul>
+            <p><b>Product 1 database:</b> 
+			Turpis massa sed elementum tempus egestas sed sed risus. Non consectetur a erat nam at lectus. Rhoncus dolor purus non enim praesent elementum. Vitae justo eget magna fermentum. Eget egestas purus viverra accumsan in nisl nisi scelerisque. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Vitae elementum curabitur vitae nunc. Ut venenatis tellus in metus vulputate eu scelerisque. Imperdiet dui accumsan sit amet nulla facilisi morbi tempus. </p>			
+			<p><b>Product 2 UX</b> Sed odio morbi quis commodo odio aenean sed adipiscing. Ullamcorper sit amet risus nullam eget felis eget nunc lobortis. Ac turpis egestas integer eget aliquet nibh praesent tristique.</p>
+           <p><b>Product 3 Support:</b> Habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Accumsan tortor posuere ac ut consequat semper viverra. A erat nam at lectus urna duis convallis convallis. Vitae proin sagittis nisl rhoncus mattis rhoncus urna. Egestas diam in arcu cursus euismod quis. Orci porta non pulvinar neque laoreet. Est sit amet facilisis magna. Adipiscing at in tellus integer. In cursus turpis massa tincidunt. Mi sit amet mauris commodo. Nam at lectus urna duis convallis convallis tellus id interdum. </p>			
+ 
+           <div class="text-button STEELBLUE">
+              <a href="index.html#customer5top">&#8592 Back</a>
+           </div>
+          </div>
+        </div>
+		<div class="col-12 SEAGREEN">
+          <div class="detailed_customer_item customer8">
+		    <a name="customer8_readmore"></a>
+            <div class="icon"></div>
+            <h1>Customer 8</h1>
+            <p><b>White Paper:</b> Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Dictum sit amet justo donec enim diam vulputate ut pharetra. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod</p>			
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Dictum sit amet justo donec enim diam vulputate ut pharetra. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Leo a diam sollicitudin tempor id eu. Malesuada nunc vel risus commodo. Sit amet cursus sit amet dictum sit amet justo. Condimentum lacinia quis vel eros donec ac odio tempor orci. Integer malesuada nunc vel risus commodo. Enim ut tellus elementum sagittis vitae. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Sed turpis tincidunt id aliquet risus feugiat in ante metus. Amet luctus venenatis lectus magna fringilla. Amet nulla facilisi morbi tempus iaculis urna id volutpat lacus.</p>
+
+			<p>Turpis massa sed elementum tempus egestas sed sed risus. Non consectetur a erat nam at lectus. Rhoncus dolor purus non enim praesent elementum. Vitae justo eget magna fermentum. Eget egestas purus viverra accumsan in nisl nisi scelerisque. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Vitae elementum curabitur vitae nunc. Ut venenatis tellus in metus vulputate eu scelerisque. Imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Et leo duis ut diam quam nulla porttitor. Scelerisque eu ultrices vitae auctor eu. Gravida arcu ac tortor dignissim convallis aenean et tortor at. Amet porttitor eget dolor morbi non. Semper eget duis at tellus at urna. Dolor morbi non arcu risus quis varius quam. Viverra mauris in aliquam sem fringilla. Faucibus ornare suspendisse sed nisi.</p>
+
+			<p>Sed odio morbi quis commodo odio aenean sed adipiscing. Ullamcorper sit amet risus nullam eget felis eget nunc lobortis. Ac turpis egestas integer eget aliquet nibh praesent tristique. Eget nunc scelerisque viverra mauris. Vitae ultricies leo integer malesuada nunc. Et ultrices neque ornare aenean euismod. Purus ut faucibus pulvinar elementum. Congue quisque egestas diam in arcu cursus euismod quis viverra. Lobortis scelerisque fermentum dui faucibus. Pellentesque diam volutpat commodo sed egestas egestas. Turpis cursus in hac habitasse platea dictumst quisque sagittis purus. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Eu scelerisque felis imperdiet proin fermentum. Odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Lectus mauris ultrices eros in. Mi eget mauris pharetra et ultrices neque. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat. Diam sit amet nisl suscipit adipiscing bibendum. Netus et malesuada fames ac turpis egestas.</p>
+
+			<p>Habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Accumsan tortor posuere ac ut consequat semper viverra. A erat nam at lectus urna duis convallis convallis. Vitae proin sagittis nisl rhoncus mattis rhoncus urna. Egestas diam in arcu cursus euismod quis. Orci porta non pulvinar neque laoreet. Est sit amet facilisis magna. Adipiscing at in tellus integer. In cursus turpis massa tincidunt. Mi sit amet mauris commodo. Nam at lectus urna duis convallis convallis tellus id interdum.</p>
+
+			<p>Odio eu feugiat pretium nibh ipsum consequat nisl vel. Id volutpat lacus laoreet non curabitur. Fermentum posuere urna nec tincidunt. Et magnis dis parturient montes nascetur ridiculus mus mauris. Tellus integer feugiat scelerisque varius morbi enim nunc. Amet nulla facilisi morbi tempus iaculis urna. Mauris vitae ultricies leo integer malesuada. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Sagittis vitae et leo duis. Nullam vehicula ipsum a arcu cursus vitae congue. Donec massa sapien faucibus et molestie ac feugiat sed lectus. Massa enim nec dui nunc mattis enim ut tellus elementum. Vulputate mi sit amet mauris. Sagittis purus sit amet volutpat. Tellus id interdum velit laoreet id. Sagittis eu volutpat odio facilisis mauris sit amet. Id interdum velit laoreet id donec ultrices tincidunt. Arcu non odio euismod lacinia at. Facilisis mauris sit amet massa vitae tortor. Tristique et egestas quis ipsum suspendisse.</p>
+			<div class="text-button SEAGREEN">
+              <a href="index.html#customer8top">&#8592 Back</a>
+           </div>			
+          </div>
+        </div>	
+	  </div> <!-- row 2 -->
+    </div> <!-- container -->
+<div class="footer">
+	<p><b>copyright 2022(c) one of a kind https://www.sachikataria.com</b></p>
+</div>
+</body>
+</html>
+
